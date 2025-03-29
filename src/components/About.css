@@ -1,0 +1,26 @@
+.education-card {
+    width: 100%;
+    max-width: 350px; /* Ensures uniform width */
+    min-height: 400px; /* Sets a fixed height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distributes content evenly */
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.education-card:hover {
+    transform: scale(1.05); /* Smooth hover effect */
+}
+
+.education-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: stretch; /* Ensures equal height */
+}
