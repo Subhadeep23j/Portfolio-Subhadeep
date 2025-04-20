@@ -69,7 +69,7 @@ const Footer = () => {
                 </div>
 
                 {/* Copyright */}
-                <p className="text-sm">&copy; {new Date().getFullYear()} Subhadeep Maity. All rights reserved.</p>
+                <p className="text-sm">&copy; {new Date().getFullYear()} Subhadeep Maity. All rights reserved. Designed and developed by Subhadep Maity</p>
             </div>
         </footer>
     );
