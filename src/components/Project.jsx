@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
 const projectsData = [
-    { id: 1, title: "AI Job Finder", description: "A full-stack web application for job seekers.", tech: ["React", "Node.js", "MongoDB"], link: "#" },
-    { id: 2, title: "Resume Builder", description: "An AI-powered resume builder.", tech: ["Next.js", "Tailwind CSS"], link: "#" },
+    // { id: 1, title: "AI Job Finder", description: "A full-stack web application for job seekers.", tech: ["React", "Node.js", "MongoDB"], link: "#" },
+    // { id: 2, title: "Resume Builder", description: "An AI-powered resume builder.", tech: ["Next.js", "Tailwind CSS"], link: "#" },
     // { id: 3, title: "Chat App", description: "A real-time chat application.", tech: ["Firebase", "React Native"], link: "#" },
-    { id: 4, title: "E-commerce Site", description: "A modern e-commerce platform.", tech: ["React", "Django"], link: "#" },
-    { id: 5, title: "Portfolio Website", description: "A personal portfolio showcasing skills and projects.", tech: ["HTML", "CSS", "JavaScript"], link: "#" }
+    // { id: 4, title: "E-commerce Site", description: "A modern e-commerce platform.", tech: ["React", "Django"], link: "#" },
+    { id: 5, title: "Portfolio Website", description: "A personal portfolio showcasing skills and projects.", tech: ["HTML", "CSS", "JavaScript", "React.js", "Tailwind CSS"], link: "https://subhadeep23j.github.io/Portfolio-Subhadeep/" },
+    { id: 5, title: "College Website", description: "A simple college website of CCLMS", tech: ["HTML", "CSS", "JavaScript","React.js","Tailwind CSS"], link: "https://subhadeep23j.github.io/CCLMS-Management-College/" }
 ];
 
 const Projects = () => {
@@ -39,10 +40,12 @@ const Projects = () => {
                                 <span key={index} className="px-2 py-1 bg-purple-700 rounded text-sm">{tech}</span>
                             ))}
                         </div>
-                        <a href={project.link} className="text-purple-500 mt-4 inline-block hover:underline">View Project →</a>
+                        <a href={project.link} className="text-purple-500 mt-4 inline-block hover:underline" target='blank'>View Project →</a>
                     </div>
+                    
                 ))}
             </div>
+            <p className='py-5 rounded text-m text-purple-500'>More projects are commig soon....</p>
 
             {/* Featured Project */}
             <div className="w-full max-w-4xl bg-gray-800 p-8 rounded-lg shadow-lg mt-12">
