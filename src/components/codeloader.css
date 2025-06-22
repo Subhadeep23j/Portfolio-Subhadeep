@@ -1,0 +1,39 @@
+/* loader.css */
+.loader-bg {
+  background: radial-gradient(ellipse at center, #1b2435, #101828, #285568);
+  animation: backgroundShift 10s infinite alternate;
+}
+
+.code-box {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  border: 2px solid #8200DB;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #8200DB;
+  max-width: 90%;
+}
+
+.text-effect {
+  color: #ffffff;
+  font-family: "Fira Code", monospace;
+  font-size: 1.1rem;
+  text-shadow: 0 0 5px #8200DB, 0 0 10px #8200DB;
+  white-space: pre-wrap;
+}
+
+.cursor {
+  display: inline-block;
+  width: 10px;
+  background-color: #8200DB;
+  height: 1.1rem;
+  margin-left: 4px;
+}
+
+@keyframes backgroundShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}

@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
+import "./codeloader.css"; // we'll define custom effects here
 
 const CodeLoader = () => {
   const codeLines = [
-    "const developer = 'Subhadeep Maity';"
+    "const developer = 'Subhadeep Maity';",
+    // "const stack = ['React', 'Node.js', 'TailwindCSS'];",
+    // "console.log('Building the future...');"
   ];
 
   const [currentText, setCurrentText] = useState("");
@@ -16,37 +19,38 @@ const CodeLoader = () => {
         setTimeout(() => {
           setCurrentText(codeLines[lineIndex].slice(0, charIndex));
           setCharIndex((prev) => prev + 1);
-        }, 70);
+        }, 55);
       } else {
         setTimeout(() => {
-          setCurrentText((prev) => prev + "\n"); // Move to the next line
+          setCurrentText((prev) => prev + "\n");
           setLineIndex((prev) => prev + 1);
           setCharIndex(0);
-        }, 500);
+        }, 400);
       }
     } else {
       setTimeout(() => {
-        setCurrentText(""); // Restart animation
+        setCurrentText("");
         setLineIndex(0);
         setCharIndex(0);
       }, 2000);
     }
   }, [charIndex, lineIndex]);
 
-  // Blinking cursor effect
   useEffect(() => {
     const cursorInterval = setInterval(() => {
       setShowCursor((prev) => !prev);
-    }, 500);
+    }, 400);
     return () => clearInterval(cursorInterval);
   }, []);
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gray-900 text-green-400 font-mono text-lg">
-      <pre className="whitespace-pre-wrap">
-        {currentText}
-        {showCursor && "|"}
-      </pre>
+    <div className="loader-bg flex items-center justify-center h-screen w-full">
+      <div className="code-box">
+        <pre className="text-effect">
+          {currentText}
+          <span className={`cursor ${showCursor ? "visible" : "invisible"}`}>|</span>
+        </pre>
+      </div>
     </div>
   );
 };

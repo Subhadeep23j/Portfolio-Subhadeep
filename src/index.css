@@ -1,4 +1,13 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .glow {
+    text-shadow: 0 0 3px #00ff99, 0 0 5px #00ff99, 0 0 10px #00ff99;
+  }
+}
 
 html {
     scroll-behavior: smooth;
