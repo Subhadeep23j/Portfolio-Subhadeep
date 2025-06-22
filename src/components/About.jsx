@@ -188,11 +188,11 @@ const About = () => {
 
 
         {/* Button */}
-        <div className="mt-8">
+        {/* <div className="mt-8">
           <a href="#projects" className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105">
             View My Work
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );
