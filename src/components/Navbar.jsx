@@ -112,7 +112,7 @@ const Navbar = () => {
             </a>
           ))}
           <a
-            href="/src/assets/Subhadeep%20Maity%20CV.pdf"
+            href="/Subhadeep Maity CV.pdf"
             download="Subhadeep_Maity_Resume.pdf"
             className="inline-block w-full"
             onClick={() => setIsOpen(false)}
