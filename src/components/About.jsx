@@ -155,7 +155,10 @@ const About = () => {
             <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-pink-500/30 hover:border-pink-500 transition-all duration-300 group">
               <h4 className="text-2xl font-bold text-pink-400 mb-4">UI/UX Design</h4>
               <div className="flex flex-wrap gap-4 justify-center mb-6">
-                <FaFigma className="text-4xl text-pink-400 transform group-hover:scale-110 transition-transform" />
+                <div className="flex flex-col items-center">
+                  <FaFigma className="text-4xl text-pink-400 transform group-hover:scale-110 transition-transform" />
+                  <span className="text-sm text-gray-400 mt-1">Figma</span>
+                </div>
               </div>
               <div className="w-full bg-gray-700/50 rounded-full h-2">
                 <div className="bg-pink-500 h-2 rounded-full transition-all duration-500" style={{ width: '80%' }}></div>
@@ -194,8 +197,14 @@ const About = () => {
             <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-yellow-500/30 hover:border-yellow-500 transition-all duration-300 group">
               <h4 className="text-2xl font-bold text-yellow-400 mb-4">Database</h4>
               <div className="flex flex-wrap gap-4 justify-center mb-6">
-                <SiMongodb className="text-4xl text-green-500 transform group-hover:scale-110 transition-transform" />
-                <SiOracle className="text-4xl text-red-500 transform group-hover:scale-110 transition-transform" />
+                <div className="flex flex-col items-center">
+                  <SiMongodb className="text-4xl text-green-500 transform group-hover:scale-110 transition-transform" />
+                  <span className="text-sm text-gray-400 mt-1">MongoDB</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <SiOracle className="text-4xl text-red-500 transform group-hover:scale-110 transition-transform" />
+                  <span className="text-sm text-gray-400 mt-1">Oracle DB</span>
+                </div>
               </div>
               <div className="w-full bg-gray-700/50 rounded-full h-2">
                 <div className="bg-yellow-500 h-2 rounded-full transition-all duration-500" style={{ width: '45%' }}></div>
