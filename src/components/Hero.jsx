@@ -46,9 +46,9 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-white px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <button className="bg-purple-500 hover:bg-purple-700 cursor-pointer text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:-translate-y-1">
-            Download CV
-          </button>
+          <a href="../assets/Subhadeep Maity CV.pdf" download="Subhadeep_Maity_Resume.pdf" className="inline-block"><button className="bg-purple-500 hover:bg-purple-700 cursor-pointer text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:-translate-y-1">
+            Download CV 
+          </button></a>
           <h1 className="mb-6 text-5xl font-bold leading-tight md:text-6xl lg:text-7xl">
             <span className="block">Hello World..!</span>
             <span className="block">I am Subhadeep Maity</span>
