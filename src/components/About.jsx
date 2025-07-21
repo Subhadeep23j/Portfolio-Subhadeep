@@ -3,6 +3,9 @@ import university from '../assets/univ.png';
 import HS from '../assets/hs.webp';
 import MP from '../assets/mp.png';
 import './About.css';
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaFigma, FaNodeJs } from "react-icons/fa";
+import { SiTailwindcss, SiExpress, SiMongodb, SiOracle } from "react-icons/si";
+
 const About = () => {
   return (
     <section id="about" className="min-h-screen flex flex-col items-center justify-start bg-gray-900 text-white px-6 pt-8">
@@ -101,60 +104,76 @@ const About = () => {
         </div>
 
         {/* Skills Section */}
-        <div className="mt-10 text-center">
-        <h3 className="text-3xl font-bold text-purple-500 mb-6">Skills</h3>
-        
-        <div className="space-y-4 text-left max-w-lg mx-auto">
-            {/* HTML, CSS, Tailwind */}
-            <div>
-            <p className="text-lg text-gray-300 flex justify-between">
-                <span>HTML, CSS, Javascript, Tailwind CSS</span> <span>90%</span>
-            </p>
-            <div className="w-full bg-gray-700 rounded-full h-2.5 mt-1">
-                <div className="bg-purple-500 h-2.5 rounded-full" style={{ width: '90%' }}></div>
-            </div>
-            </div>
-
-            {/* React.js, Next.js */}
-            <div>
-            <p className="text-lg text-gray-300 flex justify-between">
-                <span>React.js</span> <span>75%</span>
-            </p>
-            <div className="w-full bg-gray-700 rounded-full h-2.5 mt-1">
-                <div className="bg-purple-500 h-2.5 rounded-full" style={{ width: '75%' }}></div>
-            </div>
+        <div className="mt-16 text-center px-4">
+          <h3 className="text-4xl font-extrabold text-purple-400 mb-14 tracking-wide drop-shadow-lg">
+            🛠️ Skills & Technologies
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Frontend Skills */}
+            <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-purple-500/30 hover:border-purple-500 transition-all duration-300 group">
+              <h4 className="text-2xl font-bold text-purple-400 mb-4">Frontend</h4>
+              <div className="flex flex-wrap gap-4 justify-center mb-6">
+                <FaHtml5 className="text-4xl text-orange-500 transform group-hover:scale-110 transition-transform" />
+                <FaCss3Alt className="text-4xl text-blue-500 transform group-hover:scale-110 transition-transform" />
+                <FaJs className="text-4xl text-yellow-400 transform group-hover:scale-110 transition-transform" />
+                <SiTailwindcss className="text-4xl text-cyan-400 transform group-hover:scale-110 transition-transform" />
+              </div>
+              <div className="w-full bg-gray-700/50 rounded-full h-2">
+                <div className="bg-purple-500 h-2 rounded-full transition-all duration-500" style={{ width: '90%' }}></div>
+              </div>
+              <p className="text-gray-400 mt-2">90% Proficiency</p>
             </div>
 
-            {/* UI/UX Design (Figma) */}
-            <div>
-            <p className="text-lg text-gray-300 flex justify-between">
-                <span>UI/UX Design (Figma)</span> <span>80%</span>
-            </p>
-            <div className="w-full bg-gray-700 rounded-full h-2.5 mt-1">
-                <div className="bg-purple-500 h-2.5 rounded-full" style={{ width: '80%' }}></div>
-            </div>
-            </div>
-
-            {/* Backend Basics (Node.js, Express) */}
-            <div>
-            <p className="text-lg text-gray-300 flex justify-between">
-                <span>Backend Basics (Node.js, Express)</span> <span>30%</span>
-            </p>
-            <div className="w-full bg-gray-700 rounded-full h-2.5 mt-1">
-                <div className="bg-purple-500 h-2.5 rounded-full" style={{ width: '30%' }}></div>
-            </div>
+            {/* React Development */}
+            <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-blue-500/30 hover:border-blue-500 transition-all duration-300 group">
+              <h4 className="text-2xl font-bold text-blue-400 mb-4">React Development</h4>
+              <div className="flex flex-wrap gap-4 justify-center mb-6">
+                <FaReact className="text-4xl text-blue-400 animate-spin-slow transform group-hover:scale-110 transition-transform" />
+              </div>
+              <div className="w-full bg-gray-700/50 rounded-full h-2">
+                <div className="bg-blue-500 h-2 rounded-full transition-all duration-500" style={{ width: '75%' }}></div>
+              </div>
+              <p className="text-gray-400 mt-2">75% Proficiency</p>
             </div>
 
-            {/* Database (MongoDB, Firebase) */}
-            <div>
-            <p className="text-lg text-gray-300 flex justify-between">
-                <span>Database (MongoDB, Oracle)</span> <span>45%</span>
-            </p>
-            <div className="w-full bg-gray-700 rounded-full h-2.5 mt-1">
-                <div className="bg-purple-500 h-2.5 rounded-full" style={{ width: '45%' }}></div>
+            {/* UI/UX Design */}
+            <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-pink-500/30 hover:border-pink-500 transition-all duration-300 group">
+              <h4 className="text-2xl font-bold text-pink-400 mb-4">UI/UX Design</h4>
+              <div className="flex flex-wrap gap-4 justify-center mb-6">
+                <FaFigma className="text-4xl text-pink-400 transform group-hover:scale-110 transition-transform" />
+              </div>
+              <div className="w-full bg-gray-700/50 rounded-full h-2">
+                <div className="bg-pink-500 h-2 rounded-full transition-all duration-500" style={{ width: '80%' }}></div>
+              </div>
+              <p className="text-gray-400 mt-2">80% Proficiency</p>
             </div>
+
+            {/* Backend Development */}
+            <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-green-500/30 hover:border-green-500 transition-all duration-300 group">
+              <h4 className="text-2xl font-bold text-green-400 mb-4">Backend Development</h4>
+              <div className="flex flex-wrap gap-4 justify-center mb-6">
+                <FaNodeJs className="text-4xl text-green-500 transform group-hover:scale-110 transition-transform" />
+                <SiExpress className="text-4xl text-white transform group-hover:scale-110 transition-transform" />
+              </div>
+              <div className="w-full bg-gray-700/50 rounded-full h-2">
+                <div className="bg-green-500 h-2 rounded-full transition-all duration-500" style={{ width: '30%' }}></div>
+              </div>
+              <p className="text-gray-400 mt-2">30% Proficiency</p>
             </div>
-        </div>
+
+            {/* Database */}
+            <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-yellow-500/30 hover:border-yellow-500 transition-all duration-300 group">
+              <h4 className="text-2xl font-bold text-yellow-400 mb-4">Database</h4>
+              <div className="flex flex-wrap gap-4 justify-center mb-6">
+                <SiMongodb className="text-4xl text-green-500 transform group-hover:scale-110 transition-transform" />
+                <SiOracle className="text-4xl text-red-500 transform group-hover:scale-110 transition-transform" />
+              </div>
+              <div className="w-full bg-gray-700/50 rounded-full h-2">
+                <div className="bg-yellow-500 h-2 rounded-full transition-all duration-500" style={{ width: '45%' }}></div>
+              </div>
+              <p className="text-gray-400 mt-2">45% Proficiency</p>
+            </div>
+          </div>
         </div>
 
 
