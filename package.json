@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.17",
+    "emailjs-com": "^3.2.0",
     "framer-motion": "^12.6.2",
     "gh-pages": "^6.3.0",
     "react": "^19.0.0",

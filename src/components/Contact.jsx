@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "emailjs-com";
 import { motion } from "framer-motion";
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaGithub, FaEnvelope, FaPhone, FaGlobe, FaMapMarkerAlt, FaBuilding } from "react-icons/fa";
 
@@ -6,6 +7,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
+  const [sendMethod, setSendMethod] = useState("whatsapp");
 
   const validate = () => {
     let tempErrors = {};
@@ -33,18 +35,42 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      // Construct WhatsApp message
-      const whatsappNumber = "919330200862"; // Your WhatsApp number in international format, no +
-      const text =
-        `Name: ${formData.name}%0A` +
-        `Email: ${formData.email}%0A` +
-        `Phone: ${formData.phone}%0A` +
-        `Message: ${formData.message}`;
-      const url = `https://wa.me/${whatsappNumber}?text=${text}`;
-      window.open(url, "_blank");
-      setSuccess(true);
-      setTimeout(() => setSuccess(false), 3000);
-      setFormData({ name: "", email: "", phone: "", message: "" });
+      if (sendMethod === "whatsapp") {
+        const whatsappNumber = "919330200862"; // Your WhatsApp number in international format, no +
+        const text =
+          `Name: ${formData.name}%0A` +
+          `Email: ${formData.email}%0A` +
+          `Phone: ${formData.phone}%0A` +
+          `Message: ${formData.message}`;
+        const url = `https://wa.me/${whatsappNumber}?text=${text}`;
+        window.open(url, "_blank");
+        setSuccess(true);
+        setTimeout(() => setSuccess(false), 3000);
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      } else {
+        // EmailJS integration
+        emailjs.send(
+          "service_falzsse", // your EmailJS service ID
+          "template_bqit1rk", // your Contact Us template ID
+          {
+            from_name: formData.name,
+            from_email: formData.email,
+            phone: formData.phone,
+            message: formData.message,
+          },
+          "Z8WgEFJm5dHByWFxw" // your EmailJS user/public key
+        )
+        .then(
+          (result) => {
+            setSuccess(true);
+            setTimeout(() => setSuccess(false), 3000);
+            setFormData({ name: "", email: "", phone: "", message: "" });
+          },
+          (error) => {
+            setErrors({ email: "Failed to send email. Please try again later." });
+          }
+        );
+      }
     }
   };
 
@@ -87,6 +113,33 @@ const Contact = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
       >
+        <div className="mb-4">
+          <label className="block text-gray-300 mb-2">Send via</label>
+          <div className="flex items-center gap-6 mb-2">
+            <label className="flex items-center cursor-pointer">
+              <input
+                type="radio"
+                name="sendMethod"
+                value="whatsapp"
+                checked={sendMethod === "whatsapp"}
+                onChange={() => setSendMethod("whatsapp")}
+                className="form-radio text-purple-600 focus:ring-purple-500"
+              />
+              <span className="ml-2">WhatsApp</span>
+            </label>
+            <label className="flex items-center cursor-pointer">
+              <input
+                type="radio"
+                name="sendMethod"
+                value="email"
+                checked={sendMethod === "email"}
+                onChange={() => setSendMethod("email")}
+                className="form-radio text-purple-600 focus:ring-purple-500"
+              />
+              <span className="ml-2">Email</span>
+            </label>
+          </div>
+        </div>
         <div className="mb-4">
           <label className="block text-gray-300">Name</label>
           <input
