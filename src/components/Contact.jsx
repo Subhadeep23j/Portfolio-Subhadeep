@@ -1,7 +1,8 @@
 import { useState } from "react";
 import emailjs from "emailjs-com";
 import { motion } from "framer-motion";
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaGithub, FaEnvelope, FaPhone, FaGlobe, FaMapMarkerAlt, FaBuilding } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaGithub, FaEnvelope, FaPhone, FaGlobe, FaMapMarkerAlt, FaBuilding, FaWhatsapp } from "react-icons/fa";
+import { MdOutlineEmail } from "react-icons/md";
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
@@ -116,7 +117,7 @@ const Contact = () => {
         <div className="mb-4">
           <label className="block text-gray-300 mb-2">Send via</label>
           <div className="flex items-center gap-6 mb-2">
-            <label className="flex items-center cursor-pointer">
+            <label className="flex items-center cursor-pointer gap-2">
               <input
                 type="radio"
                 name="sendMethod"
@@ -125,9 +126,10 @@ const Contact = () => {
                 onChange={() => setSendMethod("whatsapp")}
                 className="form-radio text-purple-600 focus:ring-purple-500"
               />
-              <span className="ml-2">WhatsApp</span>
+              <FaWhatsapp className="text-xl" />
+              <span>WhatsApp</span>
             </label>
-            <label className="flex items-center cursor-pointer">
+            <label className="flex items-center cursor-pointer gap-2">
               <input
                 type="radio"
                 name="sendMethod"
@@ -136,7 +138,8 @@ const Contact = () => {
                 onChange={() => setSendMethod("email")}
                 className="form-radio text-purple-600 focus:ring-purple-500"
               />
-              <span className="ml-2">Email</span>
+              <MdOutlineEmail className="text-xl" />
+              <span>Email</span>
             </label>
           </div>
         </div>
