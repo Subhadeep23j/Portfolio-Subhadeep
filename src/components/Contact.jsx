@@ -33,6 +33,15 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
+      // Construct WhatsApp message
+      const whatsappNumber = "919330200862"; // Your WhatsApp number in international format, no +
+      const text =
+        `Name: ${formData.name}%0A` +
+        `Email: ${formData.email}%0A` +
+        `Phone: ${formData.phone}%0A` +
+        `Message: ${formData.message}`;
+      const url = `https://wa.me/${whatsappNumber}?text=${text}`;
+      window.open(url, "_blank");
       setSuccess(true);
       setTimeout(() => setSuccess(false), 3000);
       setFormData({ name: "", email: "", phone: "", message: "" });
