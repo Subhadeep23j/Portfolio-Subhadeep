@@ -3,7 +3,7 @@ import university from '../assets/univ.png';
 import HS from '../assets/hs.webp';
 import MP from '../assets/mp.png';
 import './About.css';
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaFigma, FaNodeJs } from "react-icons/fa";
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaFigma, FaNodeJs, FaPhp, FaLaravel } from "react-icons/fa";
 import { SiTailwindcss, SiExpress, SiMongodb, SiOracle } from "react-icons/si";
 
 const About = () => {
@@ -113,10 +113,22 @@ const About = () => {
             <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-purple-500/30 hover:border-purple-500 transition-all duration-300 group">
               <h4 className="text-2xl font-bold text-purple-400 mb-4">Frontend</h4>
               <div className="flex flex-wrap gap-4 justify-center mb-6">
-                <FaHtml5 className="text-4xl text-orange-500 transform group-hover:scale-110 transition-transform" />
-                <FaCss3Alt className="text-4xl text-blue-500 transform group-hover:scale-110 transition-transform" />
-                <FaJs className="text-4xl text-yellow-400 transform group-hover:scale-110 transition-transform" />
-                <SiTailwindcss className="text-4xl text-cyan-400 transform group-hover:scale-110 transition-transform" />
+                <div className="flex flex-col items-center">
+                  <FaHtml5 className="text-4xl text-orange-500 transform group-hover:scale-110 transition-transform" />
+                  <span className="text-sm text-gray-400 mt-1">HTML5</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <FaCss3Alt className="text-4xl text-blue-500 transform group-hover:scale-110 transition-transform" />
+                  <span className="text-sm text-gray-400 mt-1">CSS3</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <FaJs className="text-4xl text-yellow-400 transform group-hover:scale-110 transition-transform" />
+                  <span className="text-sm text-gray-400 mt-1">JavaScript</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <SiTailwindcss className="text-4xl text-cyan-400 transform group-hover:scale-110 transition-transform" />
+                  <span className="text-sm text-gray-400 mt-1">Tailwind</span>
+                </div>
               </div>
               <div className="w-full bg-gray-700/50 rounded-full h-2">
                 <div className="bg-purple-500 h-2 rounded-full transition-all duration-500" style={{ width: '90%' }}></div>
@@ -128,7 +140,10 @@ const About = () => {
             <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-blue-500/30 hover:border-blue-500 transition-all duration-300 group">
               <h4 className="text-2xl font-bold text-blue-400 mb-4">React Development</h4>
               <div className="flex flex-wrap gap-4 justify-center mb-6">
-                <FaReact className="text-4xl text-blue-400 animate-spin-slow transform group-hover:scale-110 transition-transform" />
+                <div className="flex flex-col items-center">
+                  <FaReact className="text-4xl text-blue-400 animate-spin-slow transform group-hover:scale-110 transition-transform" />
+                  <span className="text-sm text-gray-400 mt-1">React</span>
+                </div>
               </div>
               <div className="w-full bg-gray-700/50 rounded-full h-2">
                 <div className="bg-blue-500 h-2 rounded-full transition-all duration-500" style={{ width: '75%' }}></div>
@@ -152,13 +167,27 @@ const About = () => {
             <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-green-500/30 hover:border-green-500 transition-all duration-300 group">
               <h4 className="text-2xl font-bold text-green-400 mb-4">Backend Development</h4>
               <div className="flex flex-wrap gap-4 justify-center mb-6">
-                <FaNodeJs className="text-4xl text-green-500 transform group-hover:scale-110 transition-transform" />
-                <SiExpress className="text-4xl text-white transform group-hover:scale-110 transition-transform" />
+                <div className="flex flex-col items-center">
+                  <FaNodeJs className="text-4xl text-green-500 transform group-hover:scale-110 transition-transform" />
+                  <span className="text-sm text-gray-400 mt-1">Node.js</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <SiExpress className="text-4xl text-white transform group-hover:scale-110 transition-transform" />
+                  <span className="text-sm text-gray-400 mt-1">Express</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <FaPhp className="text-4xl text-indigo-500 transform group-hover:scale-110 transition-transform" />
+                  <span className="text-sm text-gray-400 mt-1">PHP</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <FaLaravel className="text-4xl text-red-500 transform group-hover:scale-110 transition-transform" />
+                  <span className="text-sm text-gray-400 mt-1">Laravel</span>
+                </div>
               </div>
               <div className="w-full bg-gray-700/50 rounded-full h-2">
-                <div className="bg-green-500 h-2 rounded-full transition-all duration-500" style={{ width: '30%' }}></div>
+                <div className="bg-green-500 h-2 rounded-full transition-all duration-500" style={{ width: '45%' }}></div>
               </div>
-              <p className="text-gray-400 mt-2">30% Proficiency</p>
+              <p className="text-gray-400 mt-2">45% Proficiency</p>
             </div>
 
             {/* Database */}
