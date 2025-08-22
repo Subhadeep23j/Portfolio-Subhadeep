@@ -57,7 +57,7 @@ const Footer = () => {
                     <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="text-purple-400 text-2xl hover:text-purple-600 transition">
                         <FaTwitter />
                     </a>
-                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" className="text-purple-400 text-2xl hover:text-purple-600 transition">
+                    <a href="https://www.linkedin.com/in/subhadeep-maity-056094378?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" className="text-purple-400 text-2xl hover:text-purple-600 transition">
                         <FaLinkedin />
                     </a>
                     <a href="https://www.instagram.com/maitysubhadeep_official/" target="_blank" rel="noopener noreferrer" className="text-purple-400 text-2xl hover:text-purple-600 transition">

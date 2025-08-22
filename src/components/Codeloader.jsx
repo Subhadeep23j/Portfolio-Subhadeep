@@ -1,174 +1,146 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 
-const IndianVibesLoader = () => {
-  const [progress, setProgress] = useState(0);
-  const [loadingStage, setLoadingStage] = useState('initializing');
-  const [isComplete, setIsComplete] = useState(false);
-  const [mandalaRotation, setMandalaRotation] = useState(0);
+const PortfolioLoader = ({ duration = 2600, onFinish }) => {
+  const [progress, setProgress] = useState(0); // 0..100
+  const [fadeOut, setFadeOut] = useState(false);
+  const [showCursor, setShowCursor] = useState(true);
+  const startRef = useRef(null);
+  const rafRef = useRef(null);
 
-  const stages = [
-    { name: 'initializing', text: 'স্বাগত... (Welcome)', delay: 1000 },
-    { name: 'loading', text: 'লোড হচ্ছে... (Loading Resources)', delay: 1000 },
-    { name: 'processing', text: 'ডেটা প্রক্রিয়াকরণ... (Processing Data)', delay: 1000 },
-    { name: 'finalizing', text: 'প্রায় প্রস্তুত... (Almost Ready)', delay: 1000 }
-  ];
+  const steps = useMemo(() => [
+    'Initializing portfolio...',
+    'Loading UI/UX components...',
+    'Compiling design systems...',
+    'Fetching project data...',
+    'Optimizing user experience...',
+    'Rendering creative solutions...',
+    'Finalizing digital reality...'
+  ], []);
 
+  const totalSteps = steps.length;
+
+  // Single rAF timeline
   useEffect(() => {
-    let currentStageIndex = 0;
-    let progressInterval;
-    let stageTimeout;
-    let rotationInterval;
-
-    rotationInterval = setInterval(() => {
-      setMandalaRotation(prev => (prev + 1) % 360);
-    }, 50);
-
-    const updateStage = () => {
-      if (currentStageIndex < stages.length) {
-        setLoadingStage(stages[currentStageIndex].name);
-
-        const stage = stages[currentStageIndex];
-        const delay = stage.delay;
-        const targetProgress = ((currentStageIndex + 1) / stages.length) * 100;
-
-        let localProgress = progress;
-        const stepCount = Math.max(1, Math.floor(delay / 50));
-        const incrementAmount = (targetProgress - localProgress) / stepCount;
-
-        let steps = 0;
-        progressInterval = setInterval(() => {
-          localProgress += incrementAmount;
-          steps++;
-          if (steps >= stepCount || localProgress >= targetProgress) {
-            clearInterval(progressInterval);
-            setProgress(targetProgress);
-          } else {
-            setProgress(localProgress);
-          }
-        }, 50);
-
-        stageTimeout = setTimeout(() => {
-          currentStageIndex++;
-          if (currentStageIndex < stages.length) {
-            updateStage();
-          } else {
-            setTimeout(() => {
-              setProgress(100);
-              setIsComplete(true);
-            }, 1000);
-          }
-        }, delay);
+    const tick = (ts) => {
+      if (!startRef.current) startRef.current = ts;
+      const elapsed = ts - startRef.current;
+      const pct = Math.min(1, elapsed / duration);
+      setProgress(Math.floor(pct * 100));
+      if (pct < 1) {
+        rafRef.current = requestAnimationFrame(tick);
+      } else {
+        setFadeOut(true);
+        // Finish after fade
+        const t = setTimeout(() => {
+          onFinish && onFinish();
+        }, 600);
+        return () => clearTimeout(t);
       }
     };
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [duration, onFinish]);
 
-    updateStage();
-
-    return () => {
-      clearInterval(progressInterval);
-      clearInterval(rotationInterval);
-      clearTimeout(stageTimeout);
-    };
+  // Cursor blink
+  useEffect(() => {
+    const id = setInterval(() => setShowCursor(c => !c), 500);
+    return () => clearInterval(id);
   }, []);
 
-  const getStageText = () => {
-    const stage = stages.find(s => s.name === loadingStage);
-    return stage ? stage.text : 'Loading...';
-  };
+  const currentStepIndex = Math.min(totalSteps - 1, Math.floor((progress / 100) * totalSteps));
+  const currentStep = steps[currentStepIndex];
 
-  const MandalCircularProgress = ({ progress }) => {
-    const radius = 60;
-    const circumference = 2 * Math.PI * radius;
-    const strokeDashoffset = circumference - (progress / 100) * circumference;
-
-    return (
-      <div className="relative w-40 h-40 mx-auto mb-4">
-        <div className="relative w-40 h-40">
-          <div
-            className="absolute inset-0 w-40 h-40 opacity-30"
-            style={{ transform: `rotate(${mandalaRotation}deg)` }}
-          >
-            <svg viewBox="0 0 160 160" className="w-full h-full">
-              <g className="text-purple-400 fill-current">
-                {[...Array(8)].map((_, i) => (
-                  <g key={i} transform={`rotate(${i * 45} 80 80)`}>
-                    <path d="M80 20 L85 35 L80 50 L75 35 Z" />
-                    <circle cx="80" cy="30" r="3" />
-                  </g>
-                ))}
-              </g>
-            </svg>
-          </div>
-
-          <svg className="w-32 h-32 transform -rotate-90 absolute top-4 left-4" viewBox="0 0 144 144">
-            <circle
-              cx="72"
-              cy="72"
-              r={radius}
-              stroke="currentColor"
-              strokeWidth="4"
-              fill="none"
-              className="text-slate-700"
-            />
-            <circle
-              cx="72"
-              cy="72"
-              r={radius}
-              stroke="currentColor"
-              strokeWidth="4"
-              fill="none"
-              strokeDasharray={circumference}
-              strokeDashoffset={strokeDashoffset}
-              className="text-purple-500 transition-all duration-300 ease-out"
-              strokeLinecap="round"
-            />
-          </svg>
-
-          <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <div className="text-3xl text-purple-400 mb-1">ॐ</div>
-            <span className="text-lg font-bold text-purple-200">
-              {Math.round(progress)}%
-            </span>
-          </div>
-        </div>
-      </div>
-    );
-  };
+  // Pre-build matrix columns only once for perf
+  const matrixColumns = useMemo(() => {
+    const chars = '01{}[];()<>/=+-*&%$#@!?';
+    const cols = 42;
+    return Array.from({ length: cols }, (_, i) => ({
+      id: i,
+      left: (i / cols) * 100,
+      delay: (Math.random() * 3).toFixed(2),
+      duration: (2 + Math.random() * 4).toFixed(2),
+      glyphs: Array.from({ length: 18 }, () => chars[Math.floor(Math.random() * chars.length)])
+    }));
+  }, []);
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 flex items-center justify-center z-50">
-      <div className="text-center relative z-10">
-        <MandalCircularProgress progress={progress} />
-
-        <div className="flex items-center justify-center mb-2">
-          <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-purple-400 mr-4"></div>
-          <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-300">
-            नमस्ते INDIA
-          </h1> <h1 className='text-4xl font-bold'>🙏🏻</h1>
-          <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-purple-400 ml-4"></div>
-        </div>
-        <h2 className="text-xl text-purple-300 mb-3 font-bold">
-         MR.Subhadeep Maity
-        </h2>
-
-        <p className="text-gray-300 text-lg transition-all duration-500 mb-4">
-          {getStageText()}
-        </p>
-
-        <div className="relative w-80 mx-auto mb-6">
-          <div className="h-3 bg-slate-800 rounded-full overflow-hidden border border-slate-600">
-            <div
-              className="h-full bg-gradient-to-r from-purple-600 via-purple-500 to-purple-400 rounded-full transition-all duration-300 ease-out relative"
-              style={{ width: `${progress}%` }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30 animate-pulse"></div>
-            </div>
+    <div className={`fixed inset-0 flex items-center justify-center z-[100] bg-gradient-to-br from-gray-950 via-purple-950 to-gray-900 overflow-hidden transition-opacity duration-700 ${fadeOut ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>      
+      {/* Matrix Rain */}
+      <div className="absolute inset-0 overflow-hidden opacity-15 pointer-events-none">
+        {matrixColumns.map(c => (
+          <div
+            key={c.id}
+            className="absolute text-emerald-400/80 text-[10px] md:text-xs font-mono animate-matrix"
+            style={{ left: `${c.left}%`, animationDelay: `${c.delay}s`, animationDuration: `${c.duration}s` }}
+          >
+            {c.glyphs.map((g, idx) => (
+              <div key={idx} className="drop-shadow-[0_0_2px_rgba(16,185,129,0.6)]">{g}</div>
+            ))}
           </div>
-          <div className="absolute -top-1 left-0 w-2 h-2 bg-purple-400 rounded-full"></div>
-          <div className="absolute -top-1 right-0 w-2 h-2 bg-purple-300 rounded-full"></div>
+        ))}
+      </div>
+
+      {/* Particles */}
+      <div className="absolute inset-0 pointer-events-none">
+        {Array.from({ length: 12 }).map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-2 h-2 rounded-full bg-fuchsia-400/30 animate-ping"
+            style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%`, animationDelay: `${Math.random() * 2}s` }}
+          />
+        ))}
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 text-center px-6 max-w-xl">
+        <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent mb-3">
+          Subhadeep Maity
+        </h1>
+        <p className="text-base md:text-lg text-fuchsia-300 font-mono mb-1">Web Developer</p>
+        <p className="text-xs md:text-sm text-gray-400 italic mb-6">Engineering the Future, One Line of Code at a Time.</p>
+
+        <div className="h-7 flex items-center justify-center font-mono text-sm md:text-base">
+          <span className="bg-gradient-to-r from-emerald-300 to-purple-400 bg-clip-text text-transparent">
+            {currentStep}
+          </span>
+          <span className={`ml-1 text-purple-400 ${showCursor ? 'opacity-100' : 'opacity-0'}`}>|</span>
+        </div>
+
+        {/* Circular progress */}
+        <div className="relative w-36 h-36 md:w-40 md:h-40 mx-auto mt-8">
+          <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
+            <circle cx="50" cy="50" r="42" stroke="rgba(255,255,255,0.1)" strokeWidth="8" fill="none" />
+            <circle
+              cx="50" cy="50" r="42" fill="none" strokeLinecap="round" strokeWidth="8"
+              stroke="url(#loaderGradient)"
+              strokeDasharray={`${2 * Math.PI * 42}`}
+              strokeDashoffset={`${2 * Math.PI * 42 * (1 - progress / 100)}`}
+              className="transition-[stroke-dashoffset] duration-150 ease-linear"
+            />
+            <defs>
+              <linearGradient id="loaderGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#8B5CF6" />
+                <stop offset="50%" stopColor="#EC4899" />
+                <stop offset="100%" stopColor="#06B6D4" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="text-white text-xl font-semibold tabular-nums">{progress}%</span>
+          </div>
+        </div>
+
+        <div className="flex justify-center gap-6 mt-6 text-[10px] md:text-xs font-mono text-purple-300">
+          {['🎨 Design','💻 Code','⚡ Speed','🚀 Launch'].map((tag,i)=>(
+            <span key={tag} className={`transition-opacity duration-300 ${progress >= (i+1)*25 ? 'opacity-100' : 'opacity-30'}`}>{tag}</span>
+          ))}
         </div>
       </div>
+
+      {/* Scoped styles (matrix animation) */}
+      <style>{`@keyframes matrix{0%{transform:translateY(-110%)}100%{transform:translateY(110%)} } .animate-matrix{animation:matrix linear infinite}`}</style>
     </div>
   );
 };
 
-export default IndianVibesLoader;
+export default PortfolioLoader;

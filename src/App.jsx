@@ -11,29 +11,23 @@ import Loader from "./components/Codeloader"; // Import the loader
 function App() {
   const [loading, setLoading] = useState(true); // Loader state
 
+  // Fallback: force-finish after 6s in case onFinish not triggered
   useEffect(() => {
-    // Simulate a loading delay (e.g., 3 seconds)
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-
-    return () => clearTimeout(timer); // Cleanup timer
+    const timer = setTimeout(() => setLoading(false), 6000);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <>
-      {loading ? (  
-        <Loader /> // Show loader first
-      ) : (
-        <div className="min-h-screen">
-          <Navbar />
-          <Hero />
-          <About />
-          <Projects />
-          <Contact />
-          <Footer />
-        </div>
-      )}
+      {loading && <Loader onFinish={() => setLoading(false)} />}
+  <div className={`min-h-screen bg-gray-900 text-white ${loading ? 'pointer-events-none select-none' : ''}`}>        
+        <Navbar />
+        <Hero />
+        <About />
+        <Projects />
+        <Contact />
+        <Footer />
+      </div>
     </>
   );
 }
