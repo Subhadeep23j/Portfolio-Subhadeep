@@ -1,26 +1,31 @@
-.education-card {
-    width: 100%;
-    max-width: 350px; /* Ensures uniform width */
-    min-height: 400px; /* Sets a fixed height */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Distributes content evenly */
-    padding: 20px;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s ease-in-out;
+/* Neon border glow effects for education cards */
+.education-card-purple {
+  box-shadow: 0 0 15px rgba(147, 51, 234, 0.3);
 }
 
-.education-card:hover {
-    transform: scale(1.05); /* Smooth hover effect */
+.education-card-blue {
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.3);
 }
 
-.education-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: stretch; /* Ensures equal height */
+.education-card-green {
+  box-shadow: 0 0 15px rgba(22, 163, 74, 0.3);
+}
+
+/* Card background */
+.card-bg {
+  background-color: #111527;
+  border: 1px solid #1a1f38;
+}
+
+/* Card content area */
+.card-content {
+  background-color: #151a33;
+}
+
+/* Tag styling */
+.education-tag {
+  background-color: #1a1f38;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
 }
