@@ -213,8 +213,8 @@ const Navbar = () => {
 									className="pt-4 pb-3"
 								>
 									<a
-										href="/Subhadeep Maity CV.pdf"
-										download="Subhadeep_Maity_CV.pdf"
+										href="/SubhadeepMaityResume.pdf"
+										download="Subhadeep_Maity_Resume.pdf"
 										className="block w-full"
 										onClick={() => setIsOpen(false)}
 									>
