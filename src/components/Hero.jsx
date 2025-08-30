@@ -49,7 +49,7 @@ const Hero = () => {
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-white px-4">
         <div className="max-w-4xl mx-auto text-center">
           <AnimatedSection delay={0.3}>
-            <a href="/Subhadeep Maity CV.pdf" download="Subhadeep_Maity_Resume.pdf" className="inline-block"><button className="bg-purple-500 hover:bg-purple-700 cursor-pointer text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:-translate-y-1 animate-fade-up">
+            <a href="/SubhadeepMaityResume.pdf" download="Subhadeep_Maity_Resume.pdf" className="inline-block"><button className="bg-purple-500 hover:bg-purple-700 cursor-pointer text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:-translate-y-1 animate-fade-up">
               Download CV 
             </button></a>
           </AnimatedSection>
