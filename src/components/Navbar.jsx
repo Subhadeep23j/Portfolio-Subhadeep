@@ -117,7 +117,7 @@ const Navbar = () => {
 							className="ml-3 cursor-pointer"
 						>
 							<motion.button 
-								className="flex items-center bg-gradient-to-r from-purple-600 to-pink-600 hover:from-pink-600 hover:to-purple-600 text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-purple-500/30 cursor-pointer"
+								className="flex items-center bg-gradient-to-r from-purple-600 to-pink-600 hover:from-pink-600 hover:to-purple-600 text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-purple-500/30"
 								whileHover={{ scale: 1.05 }}
 								whileTap={{ scale: 0.95 }}
 							>
@@ -219,7 +219,7 @@ const Navbar = () => {
 										onClick={() => setIsOpen(false)}
 									>
 										<motion.button 
-											className="w-full flex items-center justify-center bg-gradient-to-r from-purple-600 to-pink-600 hover:from-pink-600 hover:to-purple-600 text-white font-medium py-4 px-6 rounded-lg transition-all duration-300 shadow-lg cursor-pointer"
+											className="w-full flex items-center justify-center bg-gradient-to-r from-purple-600 to-pink-600 hover:from-pink-600 hover:to-purple-600 text-white font-medium py-4 px-6 rounded-lg transition-all duration-300 shadow-lg"
 											whileHover={{ scale: 1.03 }}
 											whileTap={{ scale: 0.97 }}
 										>
