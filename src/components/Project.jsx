@@ -10,7 +10,7 @@ const projectsData = [
         tech: ["React.js", "Tailwind CSS", "Framer Motion"], 
         link: "https://subhadeep-dev.netlify.app/",
         github: "https://github.com/Subhadeep23j/Portfolio-Subhadeep",
-        image: "/src/assets/portfolio.png",
+        image: "https://ik.imagekit.io/phhqetufq/portfolio/portfolio.png?updatedAt=1756716710507",
         category: "Web"
     },
     { 
@@ -20,7 +20,7 @@ const projectsData = [
         tech: ["HTML", "CSS", "JavaScript", "React.js", "Tailwind CSS"], 
         link: "https://subhadeep23j.github.io/CCLMS-Management-College/",
         github: "https://github.com/Subhadeep23j/CCLMS-Management-College",
-        image: "/src/assets/clg.png",
+        image: "https://ik.imagekit.io/phhqetufq/portfolio/clg.png?updatedAt=1756716577386",
         category: "Web"
     },
     { 
@@ -30,7 +30,7 @@ const projectsData = [
         tech: ["HTML5", "Tailwind CSS", "PHP", "MYSQL", "JavaScript"],
         link: "https://subhadeep23j.github.io/voting/",
         github: "https://github.com/Subhadeep23j/voting",
-        image: "/src/assets/voting.png",
+        image: "https://ik.imagekit.io/phhqetufq/portfolio/voting.png?updatedAt=1756716710387",
         category: "Web"
     }
 ];
