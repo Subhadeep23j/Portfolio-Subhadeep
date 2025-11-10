@@ -32,6 +32,16 @@ const projectsData = [
         github: "https://github.com/Subhadeep23j/voting",
         image: "https://ik.imagekit.io/phhqetufq/portfolio/voting.png?updatedAt=1756716710387",
         category: "Web"
+    },
+    { 
+        id: 8, 
+        title: "Online Blood Bank Management System (--Ongoing--)", 
+        description: "A secure online blood bank management system with user authentication, real-time donor matching, and an intuitive interface.", 
+        tech: ["Blade", "Tailwind CSS", "Laravel", "MYSQL", "JavaScript"],
+        // link: "https://subhadeep23j.github.io/voting/",
+        github: "https://github.com/Subhadeep23j/jeevanpravaah-blood-bank",
+        image: "https://ik.imagekit.io/t8x8nmobis/bloodBank.png?updatedAt=1762764484853",
+        category: "Web"
     }
 ];
 
@@ -75,47 +85,80 @@ const Projects = () => {
             </AnimatedSection>
 
             {/* Projects Grid */}
-            <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredProjects.map((project, index) => (
                     <AnimatedSection delay={0.5 + (index * 0.1)} key={project.id}>
-                        <div className="bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl hover:shadow-purple-500/20 transition-all duration-500 h-full flex flex-col group border border-gray-700/50 hover:border-purple-500/50">
-                            {/* Project Image */}
-                            <div className="relative h-48 overflow-hidden">
-                                <img 
-                                    src={project.image} 
-                                    alt={project.title}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60"></div>
+                        <div className="group relative h-full">
+                            {/* Card */}
+                            <div className="relative w-full h-full bg-gradient-to-br from-gray-900/70 to-gray-950/70 backdrop-blur-md border border-purple-500/30 hover:border-purple-500/70 transition-all duration-500 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl flex flex-col">
                                 
-                                {/* Overlay with links */}
-                                <div className="absolute inset-0 bg-purple-900/80 opacity-0 group-hover:opacity-90 transition-opacity duration-500 flex items-center justify-center gap-4">
-                                    <a 
-                                        href={project.github} 
-                                        target="_blank" 
-                                        rel="noopener noreferrer"
-                                        className="bg-gray-900 p-3 rounded-full text-white hover:bg-gray-800 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0"
-                                    >
-                                        <FaGithub className="text-xl" />
-                                    </a>
-                                    <a 
-                                        href={project.link} 
-                                        target="_blank" 
-                                        rel="noopener noreferrer"
-                                        className="bg-gray-900 p-3 rounded-full text-white hover:bg-gray-800 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0"
-                                    >
-                                        <FaExternalLinkAlt className="text-xl" />
-                                    </a>
+                                {/* Image section - smaller height */}
+                                <div className="relative h-40 overflow-hidden bg-gray-800">
+                                    <img 
+                                        src={project.image} 
+                                        alt={project.title}
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-gray-950 to-transparent opacity-70"></div>
+                                    
+                                    {/* Category badge */}
+                                    <div className="absolute top-2 right-2">
+                                        <span className="px-2.5 py-1 bg-purple-600/80 text-white text-xs font-bold rounded-full border border-purple-400/60">
+                                            {project.category}
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
-                            
-                            <div className="p-6 flex-1 flex flex-col">
-                                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">{project.title}</h3>
-                                <p className="text-gray-400 text-sm mb-4 flex-grow">{project.description}</p>
-                                <div className="flex flex-wrap gap-2 mb-4">
-                                    {project.tech.map((tech, index) => (
-                                        <span key={index} className="px-2 py-1 bg-purple-900/40 text-purple-300 rounded-full text-xs font-medium">{tech}</span>
-                                    ))}
+                                
+                                {/* Content section */}
+                                <div className="p-5 flex-1 flex flex-col">
+                                    {/* Title */}
+                                    <h3 className="text-lg font-bold text-white mb-2 line-clamp-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all">
+                                        {project.title}
+                                    </h3>
+                                    
+                                    {/* Description */}
+                                    <p className="text-gray-400 text-xs leading-relaxed mb-3 flex-grow line-clamp-2">
+                                        {project.description}
+                                    </p>
+                                    
+                                    {/* Tech stack - horizontal scroll */}
+                                    <div className="flex flex-wrap gap-1.5 mb-4 pb-3 border-b border-purple-500/20">
+                                        {project.tech.slice(0, 3).map((tech, idx) => (
+                                            <span 
+                                                key={idx} 
+                                                className="px-2 py-0.5 bg-purple-600/40 text-purple-200 rounded text-xs font-semibold border border-purple-400/40 hover:border-purple-400/70 transition-all"
+                                            >
+                                                {tech}
+                                            </span>
+                                        ))}
+                                        {project.tech.length > 3 && (
+                                            <span className="px-2 py-0.5 text-purple-300 text-xs font-semibold">+{project.tech.length - 3}</span>
+                                        )}
+                                    </div>
+                                    
+                                    {/* Action buttons */}
+                                    <div className="flex gap-2">
+                                        <a 
+                                            href={project.github}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-2 px-3 rounded-lg transition-all duration-300 text-center text-sm shadow-md hover:shadow-purple-500/50 transform hover:scale-105"
+                                            title="View on GitHub"
+                                        >
+                                            Code
+                                        </a>
+                                        {project.link && (
+                                            <a 
+                                                href={project.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex-1 bg-gray-800 hover:bg-gray-700 border border-purple-500/40 hover:border-purple-500/70 text-white font-bold py-2 px-3 rounded-lg transition-all duration-300 text-center text-sm shadow-md hover:shadow-purple-500/30 transform hover:scale-105"
+                                                title="Live Demo"
+                                            >
+                                                Demo
+                                            </a>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -78,149 +78,209 @@ const Contact = () => {
 
   return (
     <section id="contact" className="min-h-screen flex flex-col items-center justify-start bg-gray-900 text-white px-4 sm:px-6 lg:px-8 py-12">
-      <div className="w-full max-w-7xl mx-auto">
+      <div className="w-full max-w-6xl mx-auto">
+        {/* Header */}
         <AnimatedSection delay={0.2}>
-          <div className="w-full text-center mb-10">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-purple-500 mb-3 pt-2">Contact Me</h2>
-            <div className="w-20 h-1 bg-purple-500 mx-auto"></div>
+          <div className="w-full text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-blue-400 mb-4">
+              Get In Touch
+            </h2>
+            <div className="h-1.5 bg-gradient-to-r from-transparent via-pink-500 to-transparent max-w-2xl mx-auto mb-6"></div>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">Feel free to reach out to me. I'll get back to you as soon as possible!</p>
           </div>
         </AnimatedSection>
 
-        {/* Contact Info */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mb-14">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Left Side - Contact Info */}
           <AnimatedSection delay={0.3}>
-            <motion.div className="bg-gray-800 p-6 rounded-lg shadow-lg text-center w-full flex flex-col items-center" whileHover={{ scale: 1.05 }}>
-              <FaEnvelope className="text-purple-400 text-3xl mb-2" />
-              <a href="mailto:maitysubhadeep72@gmail.com" className="text-base sm:text-lg hover:text-purple-400 break-all">maitysubhadeep72@gmail.com</a>
-            </motion.div>
+            <div className="space-y-6">
+              <h3 className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-8">Contact Information</h3>
+              
+              {/* Email */}
+              <div className="group relative p-6 bg-gradient-to-br from-purple-900/40 to-purple-900/20 backdrop-blur-md border border-purple-500/40 rounded-2xl hover:border-purple-500/80 transition-all duration-500 cursor-pointer">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600/50 to-pink-600/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <FaEnvelope className="text-purple-300 text-xl" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-gray-400 text-sm font-semibold uppercase tracking-wider mb-1">Email</p>
+                    <a href="mailto:maitysubhadeep72@gmail.com" className="text-white text-lg font-bold hover:text-purple-400 transition-colors break-all">
+                      maitysubhadeep72@gmail.com
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Phone */}
+              <div className="group relative p-6 bg-gradient-to-br from-blue-900/40 to-blue-900/20 backdrop-blur-md border border-blue-500/40 rounded-2xl hover:border-blue-500/80 transition-all duration-500 cursor-pointer">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600/50 to-cyan-600/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <FaPhone className="text-blue-300 text-xl" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-gray-400 text-sm font-semibold uppercase tracking-wider mb-1">Phone</p>
+                    <a href="tel:+919330200862" className="text-white text-lg font-bold hover:text-blue-400 transition-colors">
+                      +91 9330200862
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* LinkedIn */}
+              <div className="group relative p-6 bg-gradient-to-br from-pink-900/40 to-pink-900/20 backdrop-blur-md border border-pink-500/40 rounded-2xl hover:border-pink-500/80 transition-all duration-500 cursor-pointer">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-600/50 to-rose-600/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <FaLinkedin className="text-pink-300 text-xl" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-gray-400 text-sm font-semibold uppercase tracking-wider mb-1">LinkedIn</p>
+                    <a href="https://www.linkedin.com/in/subhadeep-maity-056094378?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="text-white text-lg font-bold hover:text-pink-400 transition-colors">
+                      Subhadeep Maity
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* GitHub */}
+              <div className="group relative p-6 bg-gradient-to-br from-green-900/40 to-green-900/20 backdrop-blur-md border border-green-500/40 rounded-2xl hover:border-green-500/80 transition-all duration-500 cursor-pointer">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-600/50 to-emerald-600/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <FaGithub className="text-green-300 text-xl" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-gray-400 text-sm font-semibold uppercase tracking-wider mb-1">GitHub</p>
+                    <a href="https://github.com/Subhadeep23j" className="text-white text-lg font-bold hover:text-green-400 transition-colors">
+                      Subhadeep23j
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </AnimatedSection>
 
+          {/* Right Side - Contact Form */}
           <AnimatedSection delay={0.4}>
-            <motion.div className="bg-gray-800 p-6 rounded-lg shadow-lg text-center w-full flex flex-col items-center" whileHover={{ scale: 1.05 }}>
-              <FaPhone className="text-purple-400 text-3xl mb-2" />
-              <a href="tel:+919330200862" className="text-base sm:text-lg hover:text-purple-400">+91 9330200862</a>
-            </motion.div>
-          </AnimatedSection>
+            <motion.form
+              onSubmit={handleSubmit}
+              className="w-full bg-gradient-to-br from-gray-900/80 to-gray-950/80 backdrop-blur-md border border-purple-500/30 hover:border-purple-500/60 transition-all duration-500 p-8 rounded-2xl shadow-2xl"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <h3 className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-6">Send Message</h3>
+              
+              {/* Send Method */}
+              <div className="mb-6">
+                <label className="block text-gray-300 mb-3 text-sm font-bold uppercase tracking-wider">Send via</label>
+                <div className="flex gap-4 mb-4">
+                  <label className="flex items-center gap-2 cursor-pointer group">
+                    <input
+                      type="radio"
+                      name="sendMethod"
+                      value="whatsapp"
+                      checked={sendMethod === "whatsapp"}
+                      onChange={() => setSendMethod("whatsapp")}
+                      className="w-4 h-4 text-purple-600 cursor-pointer"
+                    />
+                    <FaWhatsapp className="text-green-500 text-lg group-hover:scale-110 transition-transform" />
+                    <span className="text-white font-semibold">WhatsApp</span>
+                  </label>
+                  <label className="flex items-center gap-2 cursor-pointer group">
+                    <input
+                      type="radio"
+                      name="sendMethod"
+                      value="email"
+                      checked={sendMethod === "email"}
+                      onChange={() => setSendMethod("email")}
+                      className="w-4 h-4 text-purple-600 cursor-pointer"
+                    />
+                    <MdOutlineEmail className="text-purple-500 text-lg group-hover:scale-110 transition-transform" />
+                    <span className="text-white font-semibold">Email</span>
+                  </label>
+                </div>
+              </div>
 
-            <AnimatedSection delay={0.5}>
-            <motion.div className="bg-gray-800 p-6 rounded-lg shadow-lg text-center w-full flex flex-col items-center" whileHover={{ scale: 1.05 }}>
-              <FaLinkedin className="text-purple-400 text-3xl mb-2" />
-              <a href="https://www.linkedin.com/in/subhadeep-maity-056094378?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="text-base sm:text-lg hover:text-purple-400">Subhadeep Maity</a>
-            </motion.div>
-          </AnimatedSection>
+              {/* Form Fields */}
+              <div className="space-y-4">
+                {/* Name */}
+                <div>
+                  <label className="block text-gray-300 text-sm font-bold mb-2">Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your name"
+                    className="w-full px-4 py-3 bg-gray-800/50 border border-purple-500/30 text-white rounded-lg focus:outline-none focus:border-purple-500 transition-all placeholder-gray-500"
+                  />
+                  {errors.name && <p className="text-red-400 text-xs mt-1 font-semibold">{errors.name}</p>}
+                </div>
 
-          <AnimatedSection delay={0.6}>
-            <motion.div className="bg-gray-800 p-6 rounded-lg shadow-lg text-center w-full flex flex-col items-center" whileHover={{ scale: 1.05 }}>
-              <FaGithub className="text-purple-400 text-3xl mb-2" />
-              <a href="https://github.com/Subhadeep23j" className="text-base sm:text-lg hover:text-purple-400">Subhadeep23j</a>
-            </motion.div>
+                {/* Email */}
+                <div>
+                  <label className="block text-gray-300 text-sm font-bold mb-2">Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="your@email.com"
+                    className="w-full px-4 py-3 bg-gray-800/50 border border-purple-500/30 text-white rounded-lg focus:outline-none focus:border-purple-500 transition-all placeholder-gray-500"
+                  />
+                  {errors.email && <p className="text-red-400 text-xs mt-1 font-semibold">{errors.email}</p>}
+                </div>
+
+                {/* Phone */}
+                <div>
+                  <label className="block text-gray-300 text-sm font-bold mb-2">Phone Number</label>
+                  <input
+                    type="text"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="10-digit phone number"
+                    className="w-full px-4 py-3 bg-gray-800/50 border border-purple-500/30 text-white rounded-lg focus:outline-none focus:border-purple-500 transition-all placeholder-gray-500"
+                  />
+                  {errors.phone && <p className="text-red-400 text-xs mt-1 font-semibold">{errors.phone}</p>}
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label className="block text-gray-300 text-sm font-bold mb-2">Message</label>
+                  <textarea
+                    name="message"
+                    rows="5"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Your message here..."
+                    className="w-full px-4 py-3 bg-gray-800/50 border border-purple-500/30 text-white rounded-lg focus:outline-none focus:border-purple-500 transition-all resize-none placeholder-gray-500"
+                  ></textarea>
+                  {errors.message && <p className="text-red-400 text-xs mt-1 font-semibold">{errors.message}</p>}
+                </div>
+              </div>
+
+              {/* Submit Button */}
+              <motion.button
+                type="submit"
+                className="mt-8 w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 text-lg shadow-lg hover:shadow-purple-500/50 transform hover:scale-105"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Send Message
+              </motion.button>
+
+              {success && (
+                <motion.p 
+                  className="text-green-400 text-sm mt-4 font-bold text-center bg-green-600/20 border border-green-500/50 py-2 rounded-lg"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                >
+                  ✓ Message sent successfully!
+                </motion.p>
+              )}
+            </motion.form>
           </AnimatedSection>
         </div>
-
-        {/* Form Section */}
-        <AnimatedSection delay={0.7}>
-          <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-center">Send Me a Message</h3>
-        </AnimatedSection>
-        
-        <AnimatedSection delay={0.8}>
-          <motion.form
-            onSubmit={handleSubmit}
-            className="w-full max-w-3xl mx-auto bg-gray-800/80 backdrop-blur-sm p-6 sm:p-8 rounded-xl shadow-lg"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="mb-5">
-              <label className="block text-gray-300 mb-2 text-sm font-medium">Send via</label>
-              <div className="flex flex-wrap items-center gap-6 mb-2">
-                <label className="flex items-center cursor-pointer gap-2 text-sm sm:text-base">
-                  <input
-                    type="radio"
-                    name="sendMethod"
-                    value="whatsapp"
-                    checked={sendMethod === "whatsapp"}
-                    onChange={() => setSendMethod("whatsapp")}
-                    className="form-radio text-purple-600 focus:ring-purple-500"
-                  />
-                  <FaWhatsapp className="text-xl" />
-                  <span>WhatsApp</span>
-                </label>
-                <label className="flex items-center cursor-pointer gap-2 text-sm sm:text-base">
-                  <input
-                    type="radio"
-                    name="sendMethod"
-                    value="email"
-                    checked={sendMethod === "email"}
-                    onChange={() => setSendMethod("email")}
-                    className="form-radio text-purple-600 focus:ring-purple-500"
-                  />
-                  <MdOutlineEmail className="text-xl" />
-                  <span>Email</span>
-                </label>
-              </div>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <div className="flex flex-col">
-                <label className="block text-gray-300 text-sm font-medium">Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="mt-2 px-4 py-2.5 bg-gray-700/60 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                />
-                {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
-              </div>
-
-              <div className="flex flex-col">
-                <label className="block text-gray-300 text-sm font-medium">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="mt-2 px-4 py-2.5 bg-gray-700/60 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                />
-                {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
-              </div>
-
-              <div className="flex flex-col sm:col-span-2">
-                <label className="block text-gray-300 text-sm font-medium">Phone Number</label>
-                <input
-                  type="text"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="mt-2 px-4 py-2.5 bg-gray-700/60 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                />
-                {errors.phone && <p className="text-red-400 text-xs mt-1">{errors.phone}</p>}
-              </div>
-
-              <div className="flex flex-col sm:col-span-2">
-                <label className="block text-gray-300 text-sm font-medium">Message</label>
-                <textarea
-                  name="message"
-                  rows="4"
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="mt-2 px-4 py-2.5 bg-gray-700/60 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
-                ></textarea>
-                {errors.message && <p className="text-red-400 text-xs mt-1">{errors.message}</p>}
-              </div>
-            </div>
-
-            <motion.button
-              type="submit"
-              className="mt-6 w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-4 rounded-lg transition duration-300 cursor-pointer text-sm sm:text-base"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Send Message
-            </motion.button>
-
-            {success && <p className="text-green-400 text-sm mt-4">Message sent successfully!</p>}
-          </motion.form>
-        </AnimatedSection>
       </div>
     </section>
   );
