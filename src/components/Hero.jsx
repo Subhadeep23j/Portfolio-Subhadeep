@@ -8,8 +8,13 @@ import AnimatedSection from './AnimatedSection';
 const Hero = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const images = [img1, img2, img3];
+  const imageAlts = [
+    'Subhadeep Maity developing a modern React web application',
+    'Subhadeep Maity building full stack web solutions with Laravel and React',
+    'Subhadeep Maity portfolio showcase for full stack web development projects',
+  ];
 
-  const roles = ["I'm Web Developer", "I'm UI/UX Designer","I'm Photographer"];
+  const roles = ['Full Stack Web Developer', 'React Developer', 'Laravel Developer'];
   const [roleIndex, setRoleIndex] = useState(0);
 
   // Image Carousel Effect
@@ -48,7 +53,7 @@ const Hero = () => {
             transition={{ duration: 1.5 }}
             className="absolute inset-0"
           >
-            <img src={img} alt={`Slide ${index}`} className="object-cover w-full h-full" />
+            <img src={img} alt={imageAlts[index]} className="object-cover w-full h-full" />
           </motion.div>
         ))}
       </div>
@@ -84,7 +89,7 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                Hello World!
+                Subhadeep Maity - Full Stack Web Developer
               </motion.span>
             </h1>
             
@@ -94,7 +99,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400">Subhadeep Maity</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400">React & Laravel Portfolio</span>
             </motion.h2>
 
             {/* Animated Role */}
@@ -104,16 +109,17 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <motion.div
+              <motion.p
                 key={roleIndex}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
                 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 text-transparent bg-clip-text"
+                aria-live="polite"
               >
                 {roles[roleIndex]}
-              </motion.div>
+              </motion.p>
             </motion.div>
           </motion.div>
 

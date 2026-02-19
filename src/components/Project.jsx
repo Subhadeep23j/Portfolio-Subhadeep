@@ -4,16 +4,6 @@ import { FaGithub, FaExternalLinkAlt, FaCode, FaLaptopCode } from 'react-icons/f
 
 const projectsData = [
     { 
-        id: 5, 
-        title: "Portfolio Website", 
-        description: "A personal portfolio showcasing skills and projects with interactive animations and responsive design.", 
-        tech: ["React.js", "Tailwind CSS", "Framer Motion"], 
-        link: "https://subhadeep-dev.netlify.app/",
-        github: "https://github.com/Subhadeep23j/Portfolio-Subhadeep",
-        image: "https://ik.imagekit.io/phhqetufq/portfolio/portfolio.png?updatedAt=1756716710507",
-        category: "Web"
-    },
-    { 
         id: 6, 
         title: "College Website", 
         description: "A comprehensive college website for CCLMS with student portal, course information, and admission forms.", 
@@ -35,10 +25,10 @@ const projectsData = [
     },
     { 
         id: 8, 
-        title: "Online Blood Bank Management System (--Ongoing--)", 
+        title: "Jeevan Pravaah Blood Bank Management System", 
         description: "A secure online blood bank management system with user authentication, real-time donor matching, and an intuitive interface.", 
         tech: ["Blade", "Tailwind CSS", "Laravel", "MYSQL", "JavaScript"],
-        // link: "https://subhadeep23j.github.io/voting/",
+        link: "https://jeevanpravaah.free.nf",
         github: "https://github.com/Subhadeep23j/jeevanpravaah-blood-bank",
         image: "https://ik.imagekit.io/t8x8nmobis/bloodBank.png?updatedAt=1762764484853",
         category: "Web"
@@ -155,7 +145,7 @@ const Projects = () => {
                                                 className="flex-1 bg-gray-800 hover:bg-gray-700 border border-purple-500/40 hover:border-purple-500/70 text-white font-bold py-2 px-3 rounded-lg transition-all duration-300 text-center text-sm shadow-md hover:shadow-purple-500/30 transform hover:scale-105"
                                                 title="Live Demo"
                                             >
-                                                Demo
+                                               Live Demo
                                             </a>
                                         )}
                                     </div>

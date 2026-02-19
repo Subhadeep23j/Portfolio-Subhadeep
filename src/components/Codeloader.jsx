@@ -93,9 +93,9 @@ const PortfolioLoader = ({ duration = 2600, onFinish }) => {
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-xl">
-        <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent mb-3">
+        <p className="text-5xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent mb-3">
           Subhadeep Maity
-        </h1>
+        </p>
         <p className="text-base md:text-lg text-fuchsia-300 font-mono mb-1">Web Developer</p>
         <p className="text-xs md:text-sm text-gray-400 italic mb-6">Engineering the Future, One Line of Code at a Time.</p>
 
