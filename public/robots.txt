@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://subhadeepmaity.netlify.app/sitemap.xml
+Sitemap: https://subhadeep.me/sitemap.xml

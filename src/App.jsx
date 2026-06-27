@@ -31,14 +31,14 @@ function App() {
           content="Subhadeep Maity, Full Stack Web Developer, React Developer, Laravel Developer, Web Developer Portfolio"
         />
         <meta name="robots" content="index, follow, max-image-preview:large" />
-        <link rel="canonical" href="https://subhadeepmaity.netlify.app/" />
+        <link rel="canonical" href="https://subhadeep.me/" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Subhadeep Maity | Full Stack Web Developer Portfolio" />
         <meta
           property="og:description"
           content="Portfolio of Subhadeep Maity, Full Stack Web Developer using React and Laravel to build performant web applications."
         />
-        <meta property="og:url" content="https://subhadeepmaity.netlify.app/" />
+        <meta property="og:url" content="https://subhadeep.me/" />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content="Subhadeep Maity | Full Stack Web Developer Portfolio" />
         <meta
