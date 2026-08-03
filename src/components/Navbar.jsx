@@ -122,7 +122,7 @@ const Navbar = () => {
 								whileTap={{ scale: 0.95 }}
 							>
 								<FaFileDownload className="mr-2" />
-								Download My CV
+								Download CV
 							</motion.button>
 						</a>
 					</div>
